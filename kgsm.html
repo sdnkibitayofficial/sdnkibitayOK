@@ -835,16 +835,16 @@ img { max-width: 100%; display: block; }
       <input type="number" id="rsvpGuests" min="1" max="10" value="1">
     </div>
     <div class="form-group">
-      <label for="rsvpConfirm">Konfirmasi Kehadiran *</label>
+      <label for="rsvpConfirm">Konfirmasi Bergabung *</label>
       <select id="rsvpConfirm" required>
         <option value="">— Pilih —</option>
-        <option value="Hadir">✅ Hadir</option>
-        <option value="Tidak Hadir">❌ Tidak Hadir</option>
+        <option value="Setuju">✅ Setuju</option>
+        <option value="Tidak Setuju">❌ Tidak Setuju</option>
         <option value="Kurang Pasti">🤔 Kurang Pasti</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="rsvpMessage">Pesan / Ucapan</label>
+      <label for="rsvpMessage">Pesan / Masukan</label>
       <textarea id="rsvpMessage" placeholder="Tulis pesan atau ucapan untuk SDN Kibitay..."></textarea>
     </div>
     <button type="submit" class="btn-submit">Kirim Konfirmasi via WhatsApp</button>
@@ -877,9 +877,9 @@ const CONFIG = {
   // Ubah nilai di bawah ini jika tanggal sudah fix
   eventDate: '2025-08-15T08:00:00',
   // ~~~ NOMOR WHATSAPP ADMIN (dengan kode negara, tanpa +) ~~~
-  whatsappNumber: '6281234567890',
+  whatsappNumber: '08156196175',
   // ~~~ PESAN WA OTOMATIS ~~~
-  waMessage: 'Halo, saya ingin mengkonfirmasi kehadiran untuk acara Launching KIBITAY GREEN SCHOOL MODEL.',
+  waMessage: 'Halo, saya ingin bergabung disaluran SDN KIBITAY GREEN SCHOOL MODEL.',
 };
 
 // ---- URL PARAMETER: ?to=Nama ----
@@ -905,7 +905,7 @@ function createLeaves() {
   }
 }
 
-// ---- BUKA UNDANGAN ----
+// ---- OPENING ----
 function openInvitation() {
   document.getElementById('cover').classList.add('closed');
   document.getElementById('musicBtn').classList.add('show');
