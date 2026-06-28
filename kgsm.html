@@ -1,0 +1,1093 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KIBITAY GREEN SCHOOL MODEL — SDN Kibitay Sukabumi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+  /* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #0d2f1a;
+  background: linear-gradient(180deg, #e8f5e9 0%, #fffde7 100%);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.2; color: #0d2f1a; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ===== SECTION HEADINGS ===== */
+.section-title {
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: #0d2f1a;
+  margin-bottom: 1rem;
+}
+.section-sub {
+  text-align: center;
+  font-size: 1rem;
+  color: #558b2f;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  font-weight: 300;
+}
+
+/* ===== COVER / HERO — Brand Colors: Hijau Logo + Kuning Emas + Navy ===== */
+.cover {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+  background: linear-gradient(160deg, #0d2f1a 0%, #1b5e20 25%, #2e7d32 50%, #1a237e 100%);
+  z-index: 1000;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  color: #fff;
+  transition: transform 1.2s cubic-bezier(0.77,0,0.18,1), opacity 0.8s ease;
+  padding: 2rem;
+}
+.cover.closed {
+  transform: translateY(-100%);
+  pointer-events: none;
+  opacity: 0;
+}
+.cover-particles {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; overflow: hidden;
+  z-index: 0;
+}
+.leaf {
+  position: absolute;
+  color: rgba(255,213,79,0.1);
+  font-size: 1.8rem;
+  animation: leafFall linear infinite;
+}
+@keyframes leafFall {
+  0% { transform: translateY(-10vh) rotate(0deg) scale(0.8); opacity: 0; }
+  10% { opacity: 0.6; }
+  100% { transform: translateY(110vh) rotate(720deg) scale(1.2); opacity: 0; }
+}
+.cover-content { position: relative; z-index: 1; }
+.cover-badge {
+  display: inline-block;
+  background: rgba(249,168,37,0.2);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  border: 1px solid rgba(249,168,37,0.5);
+  color: #FFD54F;
+}
+.cover h1 {
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  color: #FFD54F;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 0 40px rgba(249,168,37,0.15);
+  letter-spacing: -0.5px;
+}
+.cover .sub {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 300;
+  opacity: 0.85;
+  color: #e0e0e0;
+  max-width: 600px;
+  margin: 0 auto 1rem;
+}
+.cover .school-name {
+  font-size: 0.95rem;
+  opacity: 0.7;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #a5d6a7;
+}
+.btn-open {
+  display: inline-block;
+  background: linear-gradient(135deg, #F9A825, #FFD54F);
+  color: #0d2f1a;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 1rem 2.8rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px rgba(249,168,37,0.3), 0 0 60px rgba(249,168,37,0.1);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+}
+.btn-open:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(249,168,37,0.4), 0 0 80px rgba(249,168,37,0.15);
+  background: linear-gradient(135deg, #FFD54F, #FFE082);
+}
+.btn-open:active { transform: translateY(0); }
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, #e8f5e9 0%, #fffde7 50%, #f1f8e9 100%);
+}
+
+/* ===== WELCOME SECTION ===== */
+.welcome-section {
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 6rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, #e8f5e9 0%, #f1f8e9 30%, #fffde7 100%);
+}
+.welcome-section .greeting {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: #0d2f1a;
+  margin-bottom: 0.5rem;
+}
+.welcome-section .guest-name {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: #F9A825;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+.welcome-section .welcome-text {
+  max-width: 650px;
+  font-size: 1.05rem;
+  color: #3a5a40;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.btn-scroll-down {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  color: #F9A825;
+  font-weight: 500;
+  background: none;
+  border: 2px solid #F9A825;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+}
+.btn-scroll-down:hover { background: #F9A825; color: #0d2f1a; }
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(180deg, #fffde7 0%, #e8f5e9 100%);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+}
+.about-text p { margin-bottom: 1.2rem; color: #3a5a40; font-size: 1rem; }
+.about-quote {
+  background: linear-gradient(135deg, #e8f5e9, #fffde7);
+  padding: 2rem;
+  border-radius: 16px;
+  border-left: 5px solid #F9A825;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #0d2f1a;
+  font-weight: 400;
+}
+.about-icons {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1rem;
+  text-align: center;
+}
+.about-icons .icon-item {
+  background: #f1f8e9;
+  border-radius: 12px;
+  padding: 1.2rem 0.8rem;
+  font-size: 0.85rem;
+  color: #1b5e20;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.about-icons .icon-item:hover { background: linear-gradient(135deg, #F9A825, #FFD54F); color: #0d2f1a; transform: translateY(-4px); }
+.about-icons .icon-item span { display: block; font-size: 2rem; margin-bottom: 0.4rem; }
+
+/* ===== MENGAPA SECTION ===== */
+.mengapa-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(180deg, #f1f8e9 0%, #fffde7 100%);
+}
+.mengapa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.mengapa-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(27,94,32,0.04);
+  transition: all 0.4s ease;
+  border-top: 4px solid #F9A825;
+  cursor: default;
+}
+.mengapa-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(249,168,37,0.15);
+  border-top-color: #0d2f1a;
+}
+.mengapa-card .icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+.mengapa-card h3 { font-size: 1.1rem; font-family: 'Poppins', sans-serif; font-weight: 600; color: #0d2f1a; margin-bottom: 0.5rem; }
+.mengapa-card p { font-size: 0.9rem; color: #558b2f; }
+
+/* ===== PILAR SECTION ===== */
+.pilar-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #0d2f1a 0%, #1b5e20 100%);
+  color: #fff;
+}
+.pilar-section .section-title { color: #fff; }
+.pilar-section .section-sub { color: rgba(255,213,79,0.8); }
+.pilar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.pilar-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 1.8rem 1.2rem;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+.pilar-card:hover {
+  background: rgba(249,168,37,0.15);
+  transform: translateY(-6px);
+  border-color: #FFD54F;
+}
+.pilar-card .icon { font-size: 2.2rem; margin-bottom: 0.6rem; display: block; }
+.pilar-card h3 { font-size: 1rem; font-family: 'Poppins', sans-serif; font-weight: 600; color: #FFD54F; margin-bottom: 0.4rem; }
+.pilar-card p { font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+/* ===== VISI MISI ===== */
+.visimisi-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(180deg, #fffde7 0%, #e8f5e9 100%);
+}
+.visimisi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.vm-block {
+  background: linear-gradient(135deg, #fafffe, #fffde7);
+  border-radius: 20px;
+  padding: 2.5rem;
+}
+.vm-block h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  color: #0d2f1a;
+}
+.vm-block h3 span { display: inline-block; margin-right: 0.5rem; }
+.visi-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #1b5e20;
+  line-height: 1.8;
+  border-left: 4px solid #F9A825;
+  padding-left: 1.2rem;
+}
+.misi-list { list-style: none; }
+.misi-list li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #e8f5e9;
+  font-size: 0.92rem;
+  color: #3a5a40;
+  display: flex; gap: 0.6rem;
+  align-items: flex-start;
+}
+.misi-list li::before { content: "✦"; color: #F9A825; font-weight: 700; flex-shrink: 0; }
+.misi-list li:last-child { border-bottom: none; }
+
+/* ===== OUTPUT SECTION ===== */
+.output-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #e8f5e9 0%, #fffde7 100%);
+}
+.output-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.output-item {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.5rem 1.2rem;
+  display: flex; align-items: center; gap: 1rem;
+  box-shadow: 0 4px 12px rgba(27,94,32,0.06);
+  transition: all 0.3s;
+}
+.output-item:hover { transform: translateX(6px); box-shadow: 0 6px 20px rgba(249,168,37,0.15); }
+.output-item .check {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, #F9A825, #FFD54F);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #0d2f1a;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.output-item span { font-weight: 500; color: #0d2f1a; font-size: 0.95rem; }
+
+/* ===== AGENDA SECTION ===== */
+.agenda-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(180deg, #fffde7 0%, #e8f5e9 100%);
+}
+.agenda-table-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+.agenda-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(27,94,32,0.06);
+}
+.agenda-table thead { background: linear-gradient(135deg, #0d2f1a, #1b5e20); color: #FFD54F; }
+.agenda-table th {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.agenda-section h2 { color: #0d2f1a; }
+.agenda-table td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #e8f5e9;
+  font-size: 0.92rem;
+  color: #3a5a40;
+}
+.agenda-table tbody tr:hover { background: #fffde7; }
+
+/* ===== COUNTDOWN ===== */
+.countdown-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #0d2f1a 0%, #1b5e20 100%);
+  color: #fff;
+  text-align: center;
+}
+.countdown-section .section-title { color: #fff; }
+.countdown-section .section-sub { color: rgba(255,213,79,0.8); }
+.countdown-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.countdown-item {
+  background: rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  min-width: 110px;
+  border: 1px solid rgba(249,168,37,0.15);
+  backdrop-filter: blur(4px);
+}
+.countdown-item .num {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  color: #FFD54F;
+  line-height: 1;
+}
+.countdown-item .label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 0.4rem;
+}
+
+/* ===== LOCATION SECTION ===== */
+.location-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(180deg, #e8f5e9 0%, #fffde7 100%);
+}
+.location-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+.location-info h3 { font-size: 1.4rem; margin-bottom: 0.8rem; color: #0d2f1a; }
+.location-info p { color: #3a5a40; font-size: 0.95rem; margin-bottom: 0.5rem; }
+.location-info .address-icon { font-size: 1.2rem; margin-right: 0.4rem; }
+.btn-maps {
+  display: inline-block;
+  margin-top: 1rem;
+  background: linear-gradient(135deg, #F9A825, #FFD54F);
+  color: #0d2f1a;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s;
+}
+.btn-maps:hover { background: linear-gradient(135deg, #FFD54F, #FFE082); transform: translateY(-2px); }
+.map-wrap { border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(27,94,32,0.1); }
+.map-wrap iframe { width: 100%; height: 280px; border: 0; }
+
+/* ===== RSVP SECTION ===== */
+.rsvp-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(180deg, #e8f5e9 0%, #fffde7 100%);
+}
+.rsvp-form {
+  max-width: 580px;
+  margin: 0 auto;
+}
+.form-group { margin-bottom: 1.5rem; }
+.form-group label {
+  display: block;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #0d2f1a;
+  margin-bottom: 0.4rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border: 1.5px solid #c8e6c9;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.92rem;
+  background: #fafffe;
+  transition: all 0.3s;
+  outline: none;
+  color: #0d2f1a;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #F9A825;
+  box-shadow: 0 0 0 3px rgba(249,168,37,0.15);
+}
+.form-group textarea { min-height: 100px; resize: vertical; }
+.btn-submit {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #F9A825, #FFD54F);
+  color: #0d2f1a;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-submit:hover { background: linear-gradient(135deg, #FFD54F, #FFE082); transform: translateY(-2px); }
+.rsvp-note {
+  text-align: center;
+  font-size: 0.82rem;
+  color: #558b2f;
+  margin-top: 1rem;
+}
+
+/* ===== CLOSING ===== */
+.closing-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #0d2f1a 0%, #1b5e20 100%);
+  color: #fff;
+  text-align: center;
+}
+.closing-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+  font-style: italic;
+  color: #FFD54F;
+}
+.closing-footer {
+  border-top: 1px solid rgba(255,213,79,0.2);
+  padding-top: 2rem;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: rgba(255,213,79,0.6);
+}
+.closing-footer .school-logo {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #FFD54F;
+}
+
+/* ===== FLOATING MUSIC BUTTON ===== */
+#musicBtn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F9A825, #FFD54F);
+  border: none;
+  color: #0d2f1a;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(249,168,37,0.3);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+#musicBtn.show { opacity: 1; pointer-events: auto; }
+#musicBtn:hover { background: linear-gradient(135deg, #FFD54F, #FFE082); transform: scale(1.1); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .pilar-grid { grid-template-columns: repeat(2, 1fr); }
+  .visimisi-grid { grid-template-columns: 1fr; }
+  .location-content { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .about-icons { grid-template-columns: repeat(3,1fr); }
+  .pilar-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .countdown-grid { gap: 0.8rem; }
+  .countdown-item { min-width: 75px; padding: 1rem; }
+  .cover h1 { font-size: 2rem; }
+  .mengapa-grid { grid-template-columns: 1fr; }
+}
+  </style>
+</head>
+<body>
+  <section class="welcome-section" id="welcome">
+  <div class="welcome-content" data-reveal>
+    <p class="greeting">Dengan hormat,</p>
+    <p class="guest-name" id="guestName">Bapak/Ibu/Saudara/i</p>
+    <p class="welcome-text">
+      Kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri peluncuran konsep <strong>KIBITAY GREEN SCHOOL MODEL</strong> — sebuah gerakan transformasi pendidikan berkelanjutan di SD Negeri Kibitay, Sukabumi.
+    </p>
+    <button class="btn-scroll-down" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+      Mulai Jelajahi ↓
+    </button>
+  </div>
+</section>
+  <main>
+    <div class="cover" id="cover">
+  <div class="cover-particles" id="leafParticles"></div>
+  <div class="cover-content">
+    <div class="cover-badge">🌿 Launching Konsep</div>
+    <h1>KIBITAY<br>GREEN SCHOOL<br>MODEL</h1>
+    <p class="sub">Transformasi Pendidikan Berkelanjutan<br>untuk Generasi Masa Depan</p>
+    <p class="school-name">SD Negeri Kibitay — Sukabumi</p>
+    <button class="btn-open" id="btnOpen" onclick="openInvitation()">☘ Buka Undangan</button>
+  </div>
+</div>
+    <section class="about-section" id="about">
+  <h2 class="section-title" data-reveal>Apa Itu KIBITAY GREEN SCHOOL MODEL?</h2>
+  <p class="section-sub" data-reveal>Model transformasi sekolah dasar yang mengintegrasikan kebijakan Kemendikdasmen dengan prinsip Education for Sustainable Development (ESD)</p>
+  <div class="about-grid">
+    <div class="about-text" data-reveal>
+      <p><strong>KIBITAY GREEN SCHOOL MODEL</strong> merupakan model transformasi sekolah dasar yang mengintegrasikan kebijakan Kemendikdasmen dengan prinsip <em>Education for Sustainable Development</em> (ESD) untuk membangun sekolah yang unggul, sehat, berkarakter, adaptif terhadap teknologi, peduli lingkungan, serta mampu melahirkan generasi yang siap menghadapi tantangan abad ke-21.</p>
+      <p>Seluruh kegiatan pembelajaran, budaya sekolah, pengelolaan lingkungan, kesehatan, teknologi, kepemimpinan, hingga kewirausahaan menjadi satu ekosistem yang saling terhubung.</p>
+      <div class="about-quote">
+        "Green School bukan sekadar sekolah yang hijau oleh pepohonan. Green School adalah sekolah yang menumbuhkan cara berpikir, cara hidup, dan budaya berkelanjutan pada seluruh warga sekolah."
+      </div>
+    </div>
+    <div class="about-icons" data-reveal>
+      <div class="icon-item"><span>🌱</span>Lingkungan</div>
+      <div class="icon-item"><span>💰</span>Ekonomi</div>
+      <div class="icon-item"><span>🤝</span>Sosial</div>
+      <div class="icon-item"><span>🏛</span>Budaya</div>
+      <div class="icon-item"><span>❤️</span>Kesehatan</div>
+      <div class="icon-item"><span>💻</span>Teknologi</div>
+      <div class="icon-item"><span>⭐</span>Karakter</div>
+      <div class="icon-item"><span>👑</span>Kepemimpinan</div>
+      <div class="icon-item"><span>💡</span>Wirausaha</div>
+    </div>
+  </div>
+</section>
+    <section class="mengapa-section" id="mengapa">
+  <h2 class="section-title" data-reveal>Mengapa Green School?</h2>
+  <p class="section-sub" data-reveal>Kita sedang menghadapi perubahan besar. Sekolah harus mampu membentuk anak yang siap menghadapi tantangan abad ke-21.</p>
+  <div class="mengapa-grid">
+    <div class="mengapa-card" data-reveal>
+      <div class="icon">🌍</div>
+      <h3>Perubahan Iklim</h3>
+      <p>Krisis lingkungan yang membutuhkan kesadaran dan aksi nyata dari generasi muda sejak dini.</p>
+    </div>
+    <div class="mengapa-card" data-reveal>
+      <div class="icon">🤖</div>
+      <h3>Teknologi Digital &amp; AI</h3>
+      <p>Perkembangan teknologi yang mengubah cara belajar, bekerja, dan hidup secara fundamental.</p>
+    </div>
+    <div class="mengapa-card" data-reveal>
+      <div class="icon">🧒</div>
+      <h3>Perubahan Karakter Generasi</h3>
+      <p>Transformasi nilai dan perilaku yang memerlukan pendekatan pendidikan yang relevan.</p>
+    </div>
+    <div class="mengapa-card" data-reveal>
+      <div class="icon">🩺</div>
+      <h3>Tantangan Kesehatan</h3>
+      <p>Kesehatan fisik dan mental menjadi fondasi utama generasi yang tangguh dan produktif.</p>
+    </div>
+    <div class="mengapa-card" data-reveal>
+      <div class="icon">🌿</div>
+      <h3>Krisis Lingkungan</h3>
+      <p>Kerusakan ekosistem yang menuntut kepedulian dan tindakan berkelanjutan dari semua pihak.</p>
+    </div>
+    <div class="mengapa-card" data-reveal>
+      <div class="icon">🎯</div>
+      <h3>Keterampilan Abad 21</h3>
+      <p>Kebutuhan akan kreativitas, kolaborasi, komunikasi, dan berpikir kritis di masa depan.</p>
+    </div>
+  </div>
+</section>
+    <section class="pilar-section" id="pilar">
+  <h2 class="section-title" data-reveal>Delapan Pilar Transformasi</h2>
+  <p class="section-sub" data-reveal>Model ini dibangun melalui delapan pilar utama yang saling menguatkan untuk transformasi sekolah secara menyeluruh.</p>
+  <div class="pilar-grid">
+    <div class="pilar-card" data-reveal>
+      <span class="icon">🌱</span>
+      <h3>Green Learning</h3>
+      <p>Pembelajaran berpihak pada murid, integratif, kontekstual, dan mengembangkan kompetensi abad ke-21.</p>
+    </div>
+    <div class="pilar-card" data-reveal>
+      <span class="icon">💚</span>
+      <h3>Green Culture</h3>
+      <p>Budaya sekolah yang sehat, aman, inklusif, ramah anak, dan menanamkan karakter melalui pembiasaan positif.</p>
+    </div>
+    <div class="pilar-card" data-reveal>
+      <span class="icon">🍃</span>
+      <h3>Green Environment</h3>
+      <p>Pengelolaan lingkungan sekolah yang berkelanjutan, penghijauan, dan kepedulian terhadap ekosistem.</p>
+    </div>
+    <div class="pilar-card" data-reveal>
+      <span class="icon">❤️‍🩹</span>
+      <h3>Green Health</h3>
+      <p>Pendidikan dan budaya hidup sehat, gizi seimbang, kebersihan, serta kesehatan mental warga sekolah.</p>
+    </div>
+    <div class="pilar-card" data-reveal>
+      <span class="icon">💻</span>
+      <h3>Green Digital School</h3>
+      <p>Integrasi teknologi digital dan AI dalam pembelajaran, administrasi, dan pengembangan literasi digital.</p>
+    </div>
+    <div class="pilar-card" data-reveal>
+      <span class="icon">👑</span>
+      <h3>Green Leadership</h3>
+      <p>Pengembangan jiwa kepemimpinan peserta didik melalui program pembinaan dan keteladanan.</p>
+    </div>
+    <div class="pilar-card" data-reveal>
+      <span class="icon">💡</span>
+      <h3>Green Entrepreneurship</h3>
+      <p>Penumbuhan jiwa kewirausahaan berbasis potensi lokal dan ekonomi kreatif berkelanjutan.</p>
+    </div>
+    <div class="pilar-card" data-reveal>
+      <span class="icon">🤝</span>
+      <h3>Green Partnership</h3>
+      <p>Kolaborasi dengan orang tua, masyarakat, dunia usaha, dan pemerintah untuk ekosistem pendidikan yang kuat.</p>
+    </div>
+  </div>
+</section>
+    <section class="visimisi-section" id="visimisi">
+  <h2 class="section-title" data-reveal>Visi &amp; Misi</h2>
+  <p class="section-sub" data-reveal>Landasan arah transformasi KIBITAY GREEN SCHOOL MODEL</p>
+  <div class="visimisi-grid">
+    <div class="vm-block" data-reveal>
+      <h3><span>🔭</span>Visi</h3>
+      <div class="visi-quote">
+        "Terwujudnya SDN Kibitay sebagai Green School Model yang unggul, berkarakter, sehat, berbudaya, berwawasan lingkungan, adaptif terhadap teknologi, serta mampu melahirkan generasi pembelajar sepanjang hayat yang berdaya saing global."
+      </div>
+    </div>
+    <div class="vm-block" data-reveal>
+      <h3><span>🎯</span>Misi</h3>
+      <ul class="misi-list">
+        <li>Menyelenggarakan pembelajaran yang berpihak kepada murid</li>
+        <li>Mengembangkan budaya sekolah yang sehat, aman, inklusif, dan ramah anak</li>
+        <li>Menanamkan karakter melalui pembiasaan positif</li>
+        <li>Mengembangkan kepedulian terhadap lingkungan hidup</li>
+        <li>Mengintegrasikan teknologi digital dan AI dalam pembelajaran</li>
+        <li>Mengembangkan kepemimpinan peserta didik</li>
+        <li>Menumbuhkan jiwa kewirausahaan berbasis potensi lokal</li>
+        <li>Membangun kolaborasi dengan orang tua, masyarakat, dunia usaha, dan pemerintah</li>
+      </ul>
+    </div>
+  </div>
+</section>
+    <section class="output-section" id="output">
+  <h2 class="section-title" data-reveal>Output yang Diharapkan</h2>
+  <p class="section-sub" data-reveal>Melalui model ini, SDN Kibitay menghasilkan peserta didik yang tidak hanya cerdas secara akademik</p>
+  <div class="output-grid">
+    <div class="output-item" data-reveal><div class="check">✓</div><span>Berkarakter</span></div>
+    <div class="output-item" data-reveal><div class="check">✓</div><span>Peduli Lingkungan</span></div>
+    <div class="output-item" data-reveal><div class="check">✓</div><span>Sehat</span></div>
+    <div class="output-item" data-reveal><div class="check">✓</div><span>Kreatif</span></div>
+    <div class="output-item" data-reveal><div class="check">✓</div><span>Adaptif Terhadap Teknologi</span></div>
+    <div class="output-item" data-reveal><div class="check">✓</div><span>Memiliki Jiwa Kepemimpinan</span></div>
+    <div class="output-item" data-reveal><div class="check">✓</div><span>Berwirausaha</span></div>
+    <div class="output-item" data-reveal><div class="check">✓</div><span>Siap Menghadapi Masa Depan</span></div>
+  </div>
+</section>
+    <section class="agenda-section" id="agenda">
+  <h2 class="section-title" data-reveal>Rangkaian Acara</h2>
+  <p class="section-sub" data-reveal>Susunan agenda launching KIBITAY GREEN SCHOOL MODEL <br>(<em>jadwal masih dapat berubah — placeholder</em>)</p>
+  <div class="agenda-table-wrap" data-reveal>
+    <table class="agenda-table">
+      <thead>
+        <tr><th>Waktu</th><th>Kegiatan</th><th>Pembicara</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>07.30 – 08.00</td><td>Registrasi &amp; Sambutan Tamu</td><td>Panitia</td></tr>
+        <tr><td>08.00 – 08.15</td><td>Pembukaan &amp; Doa</td><td>MC</td></tr>
+        <tr><td>08.15 – 08.30</td><td>Tarian &amp; Penampilan Seni</td><td>Siswa SDN Kibitay</td></tr>
+        <tr><td>08.30 – 09.15</td><td>Paparan Konsep Green School Model</td><td>Tim Pengembang</td></tr>
+        <tr><td>09.15 – 09.45</td><td>Diskusi &amp; Tanya Jawab</td><td>Seluruh Peserta</td></tr>
+        <tr><td>09.45 – 10.00</td><td>Deklarasi &amp; Penandatanganan Komitmen</td><td>Seluruh Pemangku Kepentingan</td></tr>
+        <tr><td>10.00 – 10.30</td><td>Penutupan &amp; Ramah Tamah</td><td>Panitia</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+  </main>
+  <section class="countdown-section" id="countdown">
+  <h2 class="section-title" data-reveal>Menuju Hari Peluncuran</h2>
+  <p class="section-sub" data-reveal>Hitung mundur menuju launching KIBITAY GREEN SCHOOL MODEL</p>
+  <div class="countdown-grid" id="countdownGrid" data-reveal>
+    <div class="countdown-item"><div class="num" id="cdDays">00</div><div class="label">Hari</div></div>
+    <div class="countdown-item"><div class="num" id="cdHours">00</div><div class="label">Jam</div></div>
+    <div class="countdown-item"><div class="num" id="cdMinutes">00</div><div class="label">Menit</div></div>
+    <div class="countdown-item"><div class="num" id="cdSeconds">00</div><div class="label">Detik</div></div>
+  </div>
+</section>
+
+<section class="location-section" id="location">
+  <h2 class="section-title" data-reveal>Save the Date &amp; Lokasi</h2>
+  <p class="section-sub" data-reveal>Catat tanggalnya dan datang ke lokasi acara</p>
+  <div class="location-content">
+    <div class="location-info" data-reveal>
+      <h3>📍 Tempat Pelaksanaan</h3>
+      <p><span class="address-icon">🏫</span> <strong>SD Negeri Kibitay</strong></p>
+      <p>Jl. Kibitay No.1, Situmekar, Kec. Lembursitu, Kota Sukabumi, Jawa Barat 43168</p>
+      <p style="margin-top:1rem;"><span class="address-icon">📅</span> <strong>Tanggal:</strong> <span id="eventDatePlaceholder">[Belum Fix — Segera Diumumkan]</span></p>
+      <p><span class="address-icon">⏰</span> <strong>Waktu:</strong> 07.30 WIB – Selesai</p>
+      <a class="btn-maps" href="https://www.google.com/maps/search/SDN+Kibitay+Situmekar+Sukabumi" target="_blank" rel="noopener">Buka di Google Maps →</a>
+    </div>
+    <div class="map-wrap" data-reveal>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126690.88914667426!2d106.7848249441183!3d-6.934864459882656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e685c8b6f2b2b8d%3A0x4027a76e352ebf0!2sLembursitu%2C%20Kota%20Sukabumi%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1710000000000" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="rsvp-section" id="rsvp">
+  <h2 class="section-title" data-reveal>Konfirmasi Kehadiran</h2>
+  <p class="section-sub" data-reveal>Mohon konfirmasi kehadiran Bapak/Ibu/Saudara/i sebelum acara</p>
+  <form class="rsvp-form" id="rsvpForm" onsubmit="submitRSVP(event)" data-reveal>
+    <div class="form-group">
+      <label for="rsvpName">Nama Lengkap *</label>
+      <input type="text" id="rsvpName" required placeholder="Masukkan nama Anda">
+    </div>
+    <div class="form-group">
+      <label for="rsvpGuests">Jumlah Tamu yang Hadir</label>
+      <input type="number" id="rsvpGuests" min="1" max="10" value="1">
+    </div>
+    <div class="form-group">
+      <label for="rsvpConfirm">Konfirmasi Kehadiran *</label>
+      <select id="rsvpConfirm" required>
+        <option value="">— Pilih —</option>
+        <option value="Hadir">✅ Hadir</option>
+        <option value="Tidak Hadir">❌ Tidak Hadir</option>
+        <option value="Kurang Pasti">🤔 Kurang Pasti</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="rsvpMessage">Pesan / Ucapan</label>
+      <textarea id="rsvpMessage" placeholder="Tulis pesan atau ucapan untuk SDN Kibitay..."></textarea>
+    </div>
+    <button type="submit" class="btn-submit">Kirim Konfirmasi via WhatsApp</button>
+    <p class="rsvp-note">* Data Anda hanya digunakan untuk keperluan acara ini</p>
+  </form>
+</section>
+
+<button id="musicBtn" onclick="toggleMusic()">🔇</button>
+
+<section class="closing-section" id="closing">
+  <div class="closing-quote" data-reveal>
+    "KIBITAY GREEN SCHOOL MODEL bukan tentang menjadikan sekolah lebih hijau. Lebih dari itu, ini adalah gerakan membangun ekosistem pendidikan berkelanjutan yang menyiapkan generasi masa depan: berkarakter, sehat, cerdas, peduli lingkungan, menguasai teknologi, memiliki jiwa kepemimpinan, serta mampu menciptakan perubahan bagi masyarakat."
+  </div>
+  <div class="closing-footer" data-reveal>
+    <div class="school-logo">🌿🏫🌿</div>
+    <p><strong>SD Negeri Kibitay — Sukabumi</strong></p>
+    <p>Jl. Kibitay No.1 Situmekar, Kec. Lembursitu, Kota Sukabumi, Jawa Barat</p>
+    <p style="margin-top:1rem; opacity:0.6;">© 2025 — Powered by KIBITAY Green School Model Initiative</p>
+  </div>
+</section>
+  <script>
+/* ==========================================================
+   KIBITAY GREEN SCHOOL MODEL — Undangan Digital
+   Semua JavaScript Vanilla, inline, tanpa library eksternal
+   ========================================================== */
+
+// ---- PLACEHOLDER YANG MUDAH DIEDIT ----
+const CONFIG = {
+  // ~~~ TANGGAL EVENT (format: YYYY-MM-DD HH:mm:ss WIB) ~~~
+  // Ubah nilai di bawah ini jika tanggal sudah fix
+  eventDate: '2025-08-15T08:00:00',
+  // ~~~ NOMOR WHATSAPP ADMIN (dengan kode negara, tanpa +) ~~~
+  whatsappNumber: '6281234567890',
+  // ~~~ PESAN WA OTOMATIS ~~~
+  waMessage: 'Halo, saya ingin mengkonfirmasi kehadiran untuk acara Launching KIBITAY GREEN SCHOOL MODEL.',
+};
+
+// ---- URL PARAMETER: ?to=Nama ----
+function getGuestName() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('to') || null;
+}
+
+// ---- DAUN ANIMASI (Cover) ----
+function createLeaves() {
+  const container = document.getElementById('leafParticles');
+  if (!container) return;
+  const leaves = ['🍃', '🌿', '☘', '🌱', '🍀'];
+  for (let i = 0; i < 20; i++) {
+    const leaf = document.createElement('span');
+    leaf.className = 'leaf';
+    leaf.textContent = leaves[i % leaves.length];
+    leaf.style.left = Math.random() * 100 + '%';
+    leaf.style.fontSize = (1.2 + Math.random() * 1.6) + 'rem';
+    leaf.style.animationDuration = (12 + Math.random() * 18) + 's';
+    leaf.style.animationDelay = (Math.random() * 12) + 's';
+    container.appendChild(leaf);
+  }
+}
+
+// ---- BUKA UNDANGAN ----
+function openInvitation() {
+  document.getElementById('cover').classList.add('closed');
+  document.getElementById('musicBtn').classList.add('show');
+  // Trigger confetti saat cover dibuka
+  launchConfetti();
+  // Mulai countdown
+  startCountdown();
+  // Mulai scroll reveal observer
+  initRevealObserver();
+}
+
+// ---- CONFETTI SEDERHANA (DOM-based) ----
+function launchConfetti() {
+  const colors = ['#1b5e20', '#F9A825', '#FFD54F', '#0d2f1a', '#2e7d32', '#fffde7'];
+  for (let i = 0; i < 60; i++) {
+    const piece = document.createElement('div');
+    piece.style.cssText = `
+      position:fixed; top:-10px; left:${Math.random()*100}vw; z-index:2000;
+      width:${6+Math.random()*8}px; height:${6+Math.random()*8}px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      border-radius:${Math.random()>0.5?'50%':'2px'};
+      pointer-events:none;
+      opacity:${0.7+Math.random()*0.3};
+      transform:rotate(${Math.random()*360}deg);
+    `;
+    document.body.appendChild(piece);
+    const dur = 2000 + Math.random() * 3000;
+    const xDrift = (Math.random() - 0.5) * 200;
+    piece.animate([
+      { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+      { transform: `translateY(${window.innerHeight+100}px) rotate(${720+Math.random()*360}deg)`, opacity: 0 }
+    ], { duration: dur, easing: 'cubic-bezier(0.25,0.46,0.45,0.94)', fill: 'forwards' });
+    setTimeout(() => piece.remove(), dur + 100);
+  }
+}
+
+// ---- COUNTDOWN TIMER ----
+function startCountdown() {
+  const eventDate = new Date(CONFIG.eventDate).getTime();
+  if (isNaN(eventDate)) {
+    // Jika tanggal belum diisi, tampilkan pesan placeholder
+    document.getElementById('cdDays').textContent = '--';
+    document.getElementById('cdHours').textContent = '--';
+    document.getElementById('cdMinutes').textContent = '--';
+    document.getElementById('cdSeconds').textContent = '--';
+    return;
+  }
+  function tick() {
+    const now = new Date().getTime();
+    const diff = eventDate - now;
+    if (diff <= 0) {
+      document.getElementById('cdDays').textContent = '00';
+      document.getElementById('cdHours').textContent = '00';
+      document.getElementById('cdMinutes').textContent = '00';
+      document.getElementById('cdSeconds').textContent = '00';
+      return;
+    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    document.getElementById('cdDays').textContent = String(days).padStart(2, '0');
+    document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('cdMinutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('cdSeconds').textContent = String(seconds).padStart(2, '0');
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
+// ---- INTERSECTION OBSERVER (Reveal on scroll) ----
+function initRevealObserver() {
+  const els = document.querySelectorAll('[data-reveal]');
+  if (!els.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    observer.observe(el);
+  });
+}
+
+// ---- RSVP FORM via WhatsApp ----
+function submitRSVP(e) {
+  e.preventDefault();
+  const name = document.getElementById('rsvpName').value.trim();
+  const guests = document.getElementById('rsvpGuests').value;
+  const confirm = document.getElementById('rsvpConfirm').value;
+  const message = document.getElementById('rsvpMessage').value.trim();
+
+  if (!name || !confirm) {
+    alert('Mohon isi Nama dan Konfirmasi Kehadiran.');
+    return;
+  }
+
+  const text = `*RSVP - Launching KIBITAY GREEN SCHOOL MODEL*
+Nama: ${name}
+Jumlah Tamu: ${guests}
+Kehadiran: ${confirm}
+Pesan: ${message || '(tidak ada)'}`;
+
+  const waUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`;
+  window.open(waUrl, '_blank');
+}
+
+// ---- MUSIC BUTTON (Nature sounds placeholder) ----
+// Karena tidak bisa embed audio file tanpa hosting,
+// tombol musik akan toggle class visual sebagai simulasi.
+// Untuk mengaktifkan suara nyata, uncomment baris Audio di bawah
+// dan ganti src dengan URL file audio nature sounds.
+let musicPlaying = false;
+let audioEl = null;
+
+function toggleMusic() {
+  const btn = document.getElementById('musicBtn');
+  if (!audioEl) {
+    // Buat audio element jika belum ada
+    audioEl = new Audio();
+    // GANTI URL INI dengan URL file audio nature sounds jika tersedia
+    // audioEl.src = 'https://example.com/nature-sounds.mp3';
+    audioEl.loop = true;
+    audioEl.volume = 0.3;
+  }
+
+  // Jika tidak ada src audio, toggle visual saja sebagai demo
+  if (!audioEl.src || audioEl.src === window.location.href || audioEl.src === '') {
+    musicPlaying = !musicPlaying;
+    btn.textContent = musicPlaying ? '🔊' : '🔇';
+    btn.style.background = musicPlaying ? '#F9A825' : 'linear-gradient(135deg, #F9A825, #FFD54F)';
+    // Animasi pulse saat "playing"
+    if (musicPlaying) {
+      btn.style.animation = 'pulse 2s infinite';
+    } else {
+      btn.style.animation = 'none';
+    }
+    // Notifikasi ke user
+    if (musicPlaying) {
+      console.log('🔊 Musik latar aktif (placeholder — ganti src Audio untuk suara nyata)');
+    }
+    return;
+  }
+
+  // Jika ada src audio, play/pause beneran
+  if (musicPlaying) {
+    audioEl.pause();
+    btn.textContent = '🔇';
+    btn.style.background = '#F9A825';
+    btn.style.animation = 'none';
+  } else {
+    audioEl.play().catch(() => {});
+    btn.textContent = '🔊';
+    btn.style.background = 'linear-gradient(135deg, #F9A825, #FFD54F)';
+    btn.style.animation = 'pulse 2s infinite';
+  }
+  musicPlaying = !musicPlaying;
+}
+
+// Pulse animation (ditambahkan via style tag nanti)
+const pulseStyle = document.createElement('style');
+pulseStyle.textContent = `@keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(45,106,79,0.6)} 70%{box-shadow:0 0 0 12px rgba(45,106,79,0)} 100%{box-shadow:0 0 0 0 rgba(45,106,79,0)} }`;
+document.head.appendChild(pulseStyle);
+
+// ---- INIT ----
+document.addEventListener('DOMContentLoaded', () => {
+  createLeaves();
+
+  // Set guest name from URL param
+  const guestName = getGuestName();
+  if (guestName) {
+    const el = document.getElementById('guestName');
+    if (el) el.textContent = guestName;
+  }
+});
+</script>
+</body>
+</html>
