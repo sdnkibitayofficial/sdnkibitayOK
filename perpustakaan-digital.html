@@ -4,17 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Perpustakaan Digital — SDN Kibitay Sukabumi</title>
-  <meta name="description" content="Perpustakaan Digital SDN Kibitay Sukabumi — Akses koleksi buku, cerita anak, buku PDF, dan video edukasi secara online." />
+  <meta name="description" content="Perpustakaan Digital SDN Kibitay Sukabumi — kelola dan akses koleksi buku, cerita anak, buku PDF, dan video edukasi secara online." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://sdnkibitayofficial.github.io/sdnkibitayOK/perpustakaan-digital.html" />
-  <meta property="og:title" content="Perpustakaan Digital — SDN Kibitay Sukabumi" />
-  <meta property="og:description" content="Akses koleksi buku digital, cerita anak, dan video edukasi SDN Kibitay." />
-  <meta property="og:url" content="https://sdnkibitayofficial.github.io/sdnkibitayOK/perpustakaan-digital.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="id_ID" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Perpustakaan Digital — SDN Kibitay Sukabumi" />
-  <meta name="twitter:description" content="Akses koleksi buku digital, cerita anak, dan video edukasi SDN Kibitay." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -26,24 +18,23 @@
       --green-light: #4CAF50;
       --green-lighter: #a5d6a7;
       --yellow: #FFD54F;
-      --yellow-dark: #F9A825;
       --cream: #FFF8E1;
       --dark: #1a1a2e;
       --gray: #6b7280;
       --gray-light: #f5f5f5;
       --white: #ffffff;
+      --red: #C62828;
       --shadow: 0 8px 32px rgba(0,0,0,0.1);
       --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
       --radius: 16px;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
     }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       background: var(--gray-light);
       color: #374151;
       line-height: 1.6;
-      overflow-x: hidden;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -52,7 +43,7 @@
     a:hover { color: var(--green-dark); }
     img { max-width: 100%; height: auto; display: block; }
 
-    /* ===== TOP HEADER ===== */
+    /* ===== HEADER ===== */
     .library-header {
       background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 50%, #388E3C 100%);
       color: #fff;
@@ -65,228 +56,288 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      flex-wrap: wrap;
     }
-    .library-header .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .library-header .brand-logos {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .library-header .brand-logos img {
-      height: 40px;
-      width: auto;
-      object-fit: contain;
-      border-radius: 4px;
-    }
-    .library-header .brand-text {
-      display: flex;
-      flex-direction: column;
-    }
-    .library-header .brand-text .school-name {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--yellow);
-      letter-spacing: 0.5px;
-      line-height: 1.2;
-    }
-    .library-header .brand-text .library-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.3;
-    }
-    .library-header .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .library-header .brand { display: flex; align-items: center; gap: 12px; }
+    .library-header .brand-logos { display: flex; align-items: center; gap: 8px; }
+    .library-header .brand-logos img { height: 40px; width: auto; border-radius: 4px; object-fit: contain; }
+    .library-header .brand-text { display: flex; flex-direction: column; }
+    .library-header .school-name { font-size: 0.85rem; font-weight: 600; color: var(--yellow); letter-spacing: 0.5px; }
+    .library-header .library-title { font-size: 1.15rem; font-weight: 700; color: #fff; }
+    .header-actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .btn-back-main {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(6px);
-      color: #fff;
-      padding: 8px 18px;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 500;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.15); backdrop-filter: blur(6px);
+      color: #fff; padding: 8px 18px; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 500;
       border: 1px solid rgba(255,255,255,0.2);
-      transition: var(--transition);
-      cursor: pointer;
-      white-space: nowrap;
+      transition: var(--transition); cursor: pointer; white-space: nowrap;
     }
-    .btn-back-main:hover {
-      background: var(--yellow);
-      color: var(--green-dark);
-      border-color: var(--yellow);
-      transform: translateY(-1px);
-    }
+    .btn-back-main:hover { background: var(--yellow); color: var(--green-dark); border-color: var(--yellow); transform: translateY(-1px); }
 
     /* ===== BREADCRUMB ===== */
     .breadcrumb {
-      background: #fff;
-      padding: 12px 24px;
+      background: #fff; padding: 12px 24px;
       border-bottom: 1px solid rgba(0,0,0,0.05);
       font-size: 0.85rem;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 4px;
+      display: flex; align-items: center; flex-wrap: wrap; gap: 4px;
     }
-    .breadcrumb a {
-      color: var(--gray);
-      font-weight: 500;
-    }
+    .breadcrumb a { color: var(--gray); font-weight: 500; }
     .breadcrumb a:hover { color: var(--green); }
-    .breadcrumb .separator {
-      color: #ccc;
-      margin: 0 4px;
-    }
-    .breadcrumb .current {
-      color: var(--green-dark);
-      font-weight: 600;
-    }
+    .breadcrumb .sep { color: #ccc; margin: 0 4px; }
+    .breadcrumb .current { color: var(--green-dark); font-weight: 600; }
 
-    /* ===== NAVIGATION TABS ===== */
-    .library-nav {
+    /* ===== TAB NAV ===== */
+    .tab-nav {
       background: #fff;
       padding: 0 24px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
+      display: flex; gap: 4px;
       border-bottom: 2px solid rgba(0,0,0,0.04);
       overflow-x: auto;
       scrollbar-width: thin;
-      -webkit-overflow-scrolling: touch;
     }
-    .library-nav::-webkit-scrollbar { height: 3px; }
-    .library-nav::-webkit-scrollbar-thumb { background: var(--green-lighter); border-radius: 10px; }
-    .library-nav a {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    .tab-nav::-webkit-scrollbar { height: 3px; }
+    .tab-nav::-webkit-scrollbar-thumb { background: var(--green-lighter); border-radius: 10px; }
+    .tab-nav a, .tab-nav button {
+      display: flex; align-items: center; gap: 6px;
       padding: 14px 18px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--gray);
-      border-bottom: 3px solid transparent;
-      transition: var(--transition);
-      white-space: nowrap;
+      font-size: 0.88rem; font-weight: 500; color: var(--gray);
+      border: none; border-bottom: 3px solid transparent;
+      transition: var(--transition); white-space: nowrap;
+      cursor: pointer; background: transparent; font-family: inherit;
     }
-    .library-nav a:hover {
-      color: var(--green);
-      background: rgba(46,125,50,0.04);
+    .tab-nav a:hover, .tab-nav button:hover { color: var(--green); background: rgba(46,125,50,0.04); }
+    .tab-nav a.active, .tab-nav button.active {
+      color: var(--green); border-bottom-color: var(--green); font-weight: 600;
     }
-    .library-nav a.active {
-      color: var(--green);
-      border-bottom-color: var(--green);
-      font-weight: 600;
-    }
-    .library-nav a.nav-back {
-      margin-left: auto;
-      color: var(--green-dark);
-      font-weight: 600;
+    .tab-nav .nav-back {
+      margin-left: auto; color: var(--green-dark); font-weight: 600;
       background: rgba(46,125,50,0.06);
-      border-radius: 0;
     }
-    .library-nav a.nav-back:hover {
-      background: var(--green);
-      color: #fff;
-    }
+    .tab-nav .nav-back:hover { background: var(--green); color: #fff; }
 
-    /* ===== MAIN CONTENT (IFRAME) ===== */
-    .library-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      min-height: 60vh;
+    /* ===== MAIN ===== */
+    .library-main {
+      flex: 1; padding: 24px;
+      max-width: 1200px; margin: 0 auto; width: 100%;
     }
-    .library-content #library-frame {
-      width: 100%;
-      flex: 1;
-      min-height: calc(100vh - 200px);
-      border: none;
+    .tab-panel { display: none; animation: fadeIn 0.35s ease; }
+    .tab-panel.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ===== STATS ===== */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .stat-card {
+      background: #fff; border-radius: 14px; padding: 16px;
+      text-align: center; box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: var(--transition);
+    }
+    .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .stat-card .val { font-size: 1.7rem; font-weight: 800; color: var(--green-dark); line-height: 1.1; }
+    .stat-card .lbl { font-size: 0.75rem; color: var(--gray); margin-top: 4px; }
+    .stat-card.hl { background: linear-gradient(135deg, var(--green), var(--green-light)); border: none; }
+    .stat-card.hl .val { color: #fff; }
+    .stat-card.hl .lbl { color: rgba(255,255,255,0.85); }
+
+    /* ===== SEARCH BAR ===== */
+    .search-bar {
+      background: #fff; padding: 14px 20px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .search-bar input {
+      flex: 1; min-width: 180px;
+      padding: 10px 16px;
+      border: 2px solid #e0e0e0; border-radius: 50px;
+      font-size: 0.9rem; font-family: inherit;
+      outline: none; transition: var(--transition);
+    }
+    .search-bar input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(46,125,50,0.12); }
+    .search-bar select {
+      padding: 10px 14px;
+      border: 2px solid #e0e0e0; border-radius: 50px;
+      font-size: 0.85rem; font-family: inherit;
+      outline: none; cursor: pointer; transition: var(--transition);
+    }
+    .search-bar select:focus { border-color: var(--green); }
+
+    /* ===== BOOK GRID ===== */
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .book-card {
       background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.04);
+      display: flex; flex-direction: column;
     }
-    .library-content .frame-loading {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    .book-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .book-cover {
+      height: 220px;
+      background: linear-gradient(135deg, var(--green-lighter), #BBDEFB);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; position: relative;
+    }
+    .book-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .book-cover .ph { font-size: 3.5rem; opacity: 0.4; }
+    .book-info { padding: 14px 16px; flex: 1; display: flex; flex-direction: column; }
+    .bk-cat {
+      display: inline-block;
+      background: var(--green); color: #fff;
+      font-size: 0.65rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 20px;
+      margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;
+      align-self: flex-start;
+    }
+    .book-info h3 { font-size: 0.92rem; color: var(--green-dark); margin-bottom: 4px; line-height: 1.3; }
+    .book-info .auth { font-size: 0.8rem; color: var(--gray); margin-bottom: 4px; }
+    .book-info .meta { font-size: 0.75rem; color: #999; flex: 1; }
+    .bk-actions { display: flex; gap: 6px; margin-top: 10px; }
+    .bk-btn {
+      flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+      padding: 8px 10px; border-radius: 8px;
+      font-size: 0.75rem; font-weight: 600;
+      cursor: pointer; border: none; transition: var(--transition); font-family: inherit;
+      text-decoration: none;
+    }
+    .bk-btn.pdf { background: var(--green); color: #fff; }
+    .bk-btn.pdf:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .bk-btn.pdf.disabled { background: #ccc; cursor: not-allowed; pointer-events: none; }
+    .bk-btn.del { background: rgba(198,40,40,0.1); color: var(--red); }
+    .bk-btn.del:hover { background: var(--red); color: #fff; }
+
+    /* ===== ADD BOOK FORM ===== */
+    .form-card {
+      background: #fff; border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.04);
+      padding: 24px; margin-bottom: 20px;
+    }
+    .form-card h3 { font-size: 1.15rem; color: var(--green-dark); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .form-card .sub { font-size: 0.85rem; color: var(--gray); margin-bottom: 18px; }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+    .fg { display: flex; flex-direction: column; gap: 5px; }
+    .fg.full { grid-column: 1 / -1; }
+    .fg label { font-size: 0.8rem; font-weight: 600; color: #444; }
+    .fg label .req { color: var(--red); }
+    .fg input, .fg select, .fg textarea {
+      padding: 9px 14px;
+      border: 2px solid #e0e0e0; border-radius: 10px;
+      font-size: 0.88rem; font-family: inherit;
+      outline: none; transition: var(--transition);
+      background: #fafafa;
+    }
+    .fg input:focus, .fg select:focus, .fg textarea:focus {
+      border-color: var(--green); background: #fff;
+      box-shadow: 0 0 0 3px rgba(46,125,50,0.12);
+    }
+    .fg textarea { min-height: 70px; resize: vertical; }
+    .fg .hint { font-size: 0.7rem; color: #999; }
+    .form-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 11px 26px; border-radius: 50px;
+      font-size: 0.88rem; font-weight: 600;
+      cursor: pointer; border: none; transition: var(--transition); font-family: inherit;
+    }
+    .btn-pri { background: var(--green); color: #fff; }
+    .btn-pri:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(46,125,50,0.35); }
+    .btn-sec { background: #fff; color: var(--gray); border: 2px solid #e0e0e0; }
+    .btn-sec:hover { border-color: var(--gray); }
+
+    /* ===== EXPORT ===== */
+    .export-card {
+      background: #fff; border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.04);
+      padding: 24px; margin-bottom: 20px;
+    }
+    .export-card h3 { font-size: 1.15rem; color: var(--green-dark); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .export-card .sub { font-size: 0.85rem; color: var(--gray); margin-bottom: 16px; }
+    .export-hint {
+      background: var(--cream); border: 1px solid var(--yellow);
+      border-radius: 12px; padding: 14px 18px;
+      font-size: 0.83rem; margin-bottom: 14px; color: #5d4e0a; line-height: 1.5;
+    }
+    .export-hint strong { color: var(--green-dark); }
+    .export-hint code { background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 4px; font-size: 0.78rem; }
+    .btn-danger { background: var(--red); color: #fff; }
+    .btn-danger:hover { background: #8b0000; transform: translateY(-2px); }
+    .btn-warn { background: var(--yellow); color: var(--dark); }
+    .btn-warn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,213,79,0.4); }
+
+    /* ===== EMPTY STATE ===== */
+    .empty-state { text-align: center; padding: 48px 20px; color: var(--gray); }
+    .empty-state .icon { font-size: 3.5rem; margin-bottom: 12px; opacity: 0.3; }
+    .empty-state p { font-size: 0.9rem; }
+    .count-text { text-align: center; margin-bottom: 16px; color: var(--gray); font-size: 0.85rem; }
+
+    /* ===== IFRAME EMBED ===== */
+    .iframe-wrap {
+      position: relative;
+      min-height: 400px;
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .iframe-wrap iframe {
+      width: 100%;
+      min-height: calc(100vh - 250px);
+      border: none;
+      display: block;
+    }
+    .frame-loading {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
       background: var(--gray-light);
-      z-index: 5;
       transition: opacity 0.5s ease;
+      z-index: 5;
     }
-    .library-content .frame-loading.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-    .library-content .frame-loading .spinner {
-      width: 56px; height: 56px;
-      border: 5px solid rgba(46,125,50,0.15);
+    .frame-loading.hidden { opacity: 0; pointer-events: none; }
+    .frame-loading .spinner {
+      width: 48px; height: 48px;
+      border: 4px solid rgba(46,125,50,0.15);
       border-top-color: var(--green);
       border-radius: 50%;
       animation: spin 0.9s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-    .library-content .frame-loading p {
-      margin-top: 18px;
-      color: var(--gray);
-      font-size: 0.95rem;
-      font-weight: 500;
+    .frame-loading p { margin-top: 16px; color: var(--gray); font-size: 0.9rem; font-weight: 500; }
+    .frame-loading .bk-ico { font-size: 2.5rem; margin-bottom: 8px; animation: floatBk 1.4s ease-in-out infinite; }
+    @keyframes floatBk { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .blocked-msg {
+      display: none; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 3rem 2rem; text-align: center;
+      background: var(--cream); min-height: 300px;
     }
-    .library-content .frame-loading .book-icon {
-      font-size: 2.8rem;
-      margin-bottom: 8px;
-      animation: floatBook 1.4s ease-in-out infinite;
+    .blocked-msg.visible { display: flex; }
+    .blocked-msg .ic { font-size: 3rem; margin-bottom: 12px; }
+    .blocked-msg h3 { font-size: 1.2rem; color: var(--green-dark); margin-bottom: 8px; }
+    .blocked-msg p { max-width: 440px; color: var(--gray); font-size: 0.9rem; margin-bottom: 16px; }
+    .blocked-msg .btn-open {
+      background: var(--green); color: #fff;
+      padding: 12px 28px; border-radius: 50px;
+      font-weight: 600; font-size: 0.95rem;
+      text-decoration: none; transition: var(--transition);
     }
-    @keyframes floatBook {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-    /* Fallback blocked message */
-    .blocked-message {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 2rem;
-      text-align: center;
-      background: var(--cream);
-      min-height: 50vh;
-    }
-    .blocked-message.visible { display: flex; }
-    .blocked-message .icon-big { font-size: 4rem; margin-bottom: 1rem; }
-    .blocked-message h3 { font-size: 1.4rem; color: var(--green-dark); margin-bottom: 0.8rem; }
-    .blocked-message p { max-width: 500px; color: var(--gray); margin-bottom: 1.5rem; }
-    .blocked-message .btn-redirect {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--green);
-      color: #fff;
-      padding: 14px 32px;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: var(--transition);
-      border: none;
-      cursor: pointer;
-    }
-    .blocked-message .btn-redirect:hover {
-      background: var(--green-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(46,125,50,0.3);
-    }
-    .blocked-message .btn-redirect:active { transform: translateY(0); }
+    .blocked-msg .btn-open:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(46,125,50,0.35); }
 
     /* ===== FOOTER ===== */
     .library-footer {
@@ -298,48 +349,51 @@
     }
     .library-footer strong { color: var(--yellow); }
 
-    /* ===== ENTER ANIMATION ===== */
-    body.page-enter {
-      animation: pageFadeIn 0.6s ease forwards;
+    /* ===== TOAST ===== */
+    #toast {
+      position: fixed; bottom: 24px; left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--green-dark); color: #fff;
+      padding: 14px 28px; border-radius: 50px;
+      font-size: 0.88rem; font-weight: 500;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      z-index: 9999; opacity: 0;
+      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+      pointer-events: none; max-width: 90vw; text-align: center;
     }
-    @keyframes pageFadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    #toast.error { background: var(--red); }
+    #toast.success { background: var(--green); }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .library-header {
-        padding: 0 12px;
-        height: 62px;
-        flex-wrap: wrap;
-      }
+      .library-header { padding: 0 12px; height: 62px; }
       .library-header .brand-logos img { height: 32px; }
-      .library-header .brand-text .school-name { font-size: 0.7rem; }
-      .library-header .brand-text .library-title { font-size: 0.95rem; }
+      .library-header .school-name { font-size: 0.7rem; }
+      .library-header .library-title { font-size: 0.95rem; }
       .btn-back-main { font-size: 0.78rem; padding: 6px 12px; }
       .breadcrumb { padding: 10px 12px; font-size: 0.78rem; }
-      .library-nav { padding: 0 8px; gap: 0; }
-      .library-nav a { padding: 12px 10px; font-size: 0.8rem; }
-      .library-content #library-frame { min-height: calc(100vh - 170px); }
-    }
-    @media (max-width: 480px) {
-      .library-header .brand-logos img { height: 26px; }
-      .library-header .brand-text .school-name { display: none; }
-      .library-header .brand-text .library-title { font-size: 0.82rem; }
-      .btn-back-main span { display: none; }
-      .library-nav a { padding: 10px 8px; font-size: 0.75rem; }
+      .tab-nav { padding: 0 8px; gap: 0; }
+      .tab-nav a, .tab-nav button { padding: 12px 10px; font-size: 0.8rem; }
+      .library-main { padding: 16px; }
+      .book-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+      .book-cover { height: 180px; }
+      .book-info { padding: 10px; }
+      .book-info h3 { font-size: 0.85rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .search-bar { flex-direction: column; align-items: stretch; }
+      .search-bar input { min-width: 0; }
     }
   </style>
 </head>
-<body class="page-enter">
+<body>
 
   <!-- ===== HEADER ===== -->
   <header class="library-header">
     <div class="brand">
       <div class="brand-logos">
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Lambang_Kota_Sukabumi.png" alt="Lambang Kota Sukabumi" loading="lazy" />
-        <img src="https://cos-aigc-default.agnes-ai.com/agnes/chat_attachment/b3d000c8-6aa2-461f-97c0-508297355774/1782008072_286fc1f7.png" alt="Logo SDN Kibitay" loading="lazy" style="height:36px; border-radius:50%;" onerror="this.style.display='none'" />
+        <img src="https://cos-aigc-default.agnes-ai.com/agnes/chat_attachment/b3d000c8-6aa2-461f-97c0-508297355774/1782008072_286fc1f7.png" alt="Logo SDN Kibitay" loading="lazy" style="height:36px;border-radius:50%;" onerror="this.style.display='none'" />
       </div>
       <div class="brand-text">
         <span class="school-name">SDN KIBITAY SUKABUMI</span>
@@ -356,53 +410,208 @@
   <!-- ===== BREADCRUMB ===== -->
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="index.html">Beranda</a>
-    <span class="separator">›</span>
+    <span class="sep">›</span>
     <a href="index.html#fasilitas">Fasilitas</a>
-    <span class="separator">›</span>
+    <span class="sep">›</span>
     <a href="index.html#fasilitas">Perpustakaan</a>
-    <span class="separator">›</span>
+    <span class="sep">›</span>
     <span class="current">Perpustakaan Digital</span>
   </nav>
 
-  <!-- ===== NAVIGASI ===== -->
-  <nav class="library-nav" aria-label="Navigasi Perpustakaan Digital">
-    <a href="index.html" class="active">🏠 Beranda</a>
-    <a href="#" onclick="scrollIframe('koleksi')">📚 Koleksi Buku</a>
-    <a href="#" onclick="scrollIframe('cerita')">📖 Cerita Anak</a>
-    <a href="#" onclick="scrollIframe('pdf')">📄 Buku PDF</a>
-    <a href="#" onclick="scrollIframe('video')">🎥 Video Edukasi</a>
-    <a href="index.html" class="nav-back">⬅ Kembali ke Website Utama</a>
+  <!-- ===== TAB NAV ===== -->
+  <nav class="tab-nav" aria-label="Navigasi Perpustakaan">
+    <button class="active" onclick="switchTab('koleksi')" aria-label="Koleksi Buku">📚 Koleksi Buku</button>
+    <button onclick="switchTab('tambah')" aria-label="Tambah Buku">➕ Tambah Buku</button>
+    <button onclick="switchTab('ekspor')" aria-label="Ekspor Data">📤 Ekspor</button>
+    <button onclick="switchTab('edukatif')" aria-label="Halaman Edukatif">📖 Halaman Edukatif</button>
+    <a href="index.html" class="nav-back">⬅ Kembali</a>
   </nav>
 
-  <!-- ===== CONTENT ===== -->
-  <main class="library-content">
-    <!-- Loading overlay -->
-    <div class="frame-loading" id="frame-loading">
-      <div class="book-icon">📚</div>
-      <div class="spinner"></div>
-      <p>Memuat Perpustakaan Digital...</p>
+  <!-- ===== MAIN ===== -->
+  <main class="library-main">
+
+    <!-- ===== TAB 1: KOLESI BUKU ===== -->
+    <div id="tab-koleksi" class="tab-panel active">
+      <div class="stats-bar">
+        <div class="stat-card hl">
+          <div class="val" id="sTotal">0</div>
+          <div class="lbl">Total Koleksi</div>
+        </div>
+        <div class="stat-card">
+          <div class="val" id="sBulan">0</div>
+          <div class="lbl">Bulan Ini</div>
+        </div>
+        <div class="stat-card">
+          <div class="val" id="sKategori">0</div>
+          <div class="lbl">Kategori</div>
+        </div>
+        <div class="stat-card">
+          <div class="val" id="sPdf">0</div>
+          <div class="lbl">Ada PDF</div>
+        </div>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" id="searchBox" placeholder="🔍 Cari judul, penulis, ISBN..." oninput="renderGrid()" />
+        <select id="filterCat" onchange="renderGrid()">
+          <option value="">Semua Kategori</option>
+          <option value="Pelajaran">📘 Pelajaran</option>
+          <option value="Cerita Anak">📖 Cerita Anak</option>
+          <option value="Sains">🔬 Sains</option>
+          <option value="Bahasa">🗣️ Bahasa</option>
+          <option value="Seni">🎨 Seni</option>
+          <option value="Agama">🕌 Agama</option>
+          <option value="Komik">💬 Komik</option>
+          <option value="Puzzle & Teka-teki">🧩 Puzzle</option>
+          <option value="Umum">📚 Umum</option>
+        </select>
+      </div>
+
+      <p class="count-text" id="countText">Memuat katalog buku...</p>
+      <div class="book-grid" id="bookGrid"></div>
+      <div class="empty-state" id="emptyState" style="display:none;">
+        <div class="icon">📭</div>
+        <p>Belum ada data buku. Gunakan tab <strong>➕ Tambah Buku</strong> untuk menambahkan koleksi baru.</p>
+      </div>
     </div>
 
-    <!-- Blocked fallback -->
-    <div class="blocked-message" id="blocked-message">
-      <div class="icon-big">🔒</div>
-      <h3>Perpustakaan Digital Tidak Dapat Ditampilkan</h3>
-      <p>Halaman perpustakaan digital tidak dapat dimuat dalam bingkai karena kebijakan keamanan browser. Klik tombol di bawah untuk membuka langsung.</p>
-      <a href="https://cos-aigc-default.agnes-ai.com/agent/website-preview/329639033789599744/qiaoran-vs-garlic-turtle-1e387b/index.html?v=3eaa63cfe138" target="_blank" rel="noopener noreferrer" class="btn-redirect">
-        📚 Buka Perpustakaan Digital →
-      </a>
+    <!-- ===== TAB 2: TAMBAH BUKU ===== -->
+    <div id="tab-tambah" class="tab-panel">
+      <div class="form-card">
+        <h3>📗 Tambah Koleksi Buku Baru</h3>
+        <p class="sub">Isi form di bawah untuk menambahkan buku ke inventaris perpustakaan. Data disimpan otomatis di browser (localStorage) dan bisa diekspor ke CSV/Google Sheet.</p>
+        <form id="bookForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-grid">
+            <div class="fg">
+              <label>Judul Buku <span class="req">*</span></label>
+              <input type="text" id="fJudul" placeholder="Contoh: Matematika Kelas 3" required maxlength="120" />
+            </div>
+            <div class="fg">
+              <label>Penulis <span class="req">*</span></label>
+              <input type="text" id="fPenulis" placeholder="Contoh: Tim Pendidikan" required maxlength="80" />
+            </div>
+            <div class="fg">
+              <label>Kategori</label>
+              <select id="fKategori">
+                <option value="Pelajaran">📘 Pelajaran</option>
+                <option value="Cerita Anak">📖 Cerita Anak</option>
+                <option value="Sains">🔬 Sains</option>
+                <option value="Bahasa">🗣️ Bahasa</option>
+                <option value="Seni">🎨 Seni</option>
+                <option value="Agama">🕌 Agama</option>
+                <option value="Komik">💬 Komik</option>
+                <option value="Puzzle & Teka-teki">🧩 Puzzle</option>
+                <option value="Umum">📚 Umum</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Tahun Terbit</label>
+              <input type="number" id="fTahun" min="1900" max="2030" placeholder="2026" />
+            </div>
+            <div class="fg">
+              <label>Jumlah Eksemplar</label>
+              <input type="number" id="fJumlah" min="1" value="1" />
+              <span class="hint">Berapa buku fisik yang tersedia</span>
+            </div>
+            <div class="fg">
+              <label>Kondisi</label>
+              <select id="fKondisi">
+                <option value="Baik">✅ Baik</option>
+                <option value="Layak">🟡 Layak</option>
+                <option value="Perlu Perbaikan">🔧 Perlu Perbaikan</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Rak / Lokasi</label>
+              <input type="text" id="fRak" placeholder="Contoh: Rak A-3, Lantai 2" maxlength="40" />
+            </div>
+            <div class="fg">
+              <label>ISBN (opsional)</label>
+              <input type="text" id="fISBN" placeholder="978-602-000000-0" maxlength="20" />
+            </div>
+            <div class="fg full">
+              <label>Deskripsi / Ringkasan</label>
+              <textarea id="fDeskripsi" placeholder="Ringkasan singkat isi buku..." maxlength="300"></textarea>
+            </div>
+            <div class="fg">
+              <label>Link Cover Gambar</label>
+              <input type="url" id="fCover" placeholder="https://..." />
+              <span class="hint">URL gambar cover (Google Drive, GitHub, dll.)</span>
+            </div>
+            <div class="fg">
+              <label>Link PDF / E-book</label>
+              <input type="url" id="fPdf" placeholder="https://drive.google.com/..." />
+              <span class="hint">URL file PDF atau e-book digital</span>
+            </div>
+            <div class="fg">
+              <label>Tanggal Masuk Koleksi</label>
+              <input type="date" id="fTanggal" />
+            </div>
+            <div class="fg">
+              <label>Sumber Perolehan</label>
+              <select id="fSumber">
+                <option value="Pembelian">Pembelian</option>
+                <option value="Donasi">Donasi</option>
+                <option value="Dukungan Dinas">Dukungan Dinas</option>
+                <option value="BOSP">BOSP</option>
+                <option value="Digital / E-book">Digital / E-book</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-pri" id="submitBtn">💾 Simpan Buku</button>
+            <button type="button" class="btn btn-sec" onclick="resetForm()">🔄 Reset Form</button>
+            <button type="button" class="btn btn-sec" id="cancelEditBtn" style="display:none;" onclick="cancelEdit()">❌ Batal Edit</button>
+          </div>
+        </form>
+      </div>
     </div>
 
-    <!-- Iframe -->
-    <iframe id="library-frame"
-            src="https://cos-aigc-default.agnes-ai.com/agent/website-preview/329639033789599744/qiaoran-vs-garlic-turtle-1e387b/index.html?v=3eaa63cfe138"
-            title="Perpustakaan Digital SDN Kibitay"
-            allow="fullscreen"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-            loading="lazy"
-            onload="onFrameLoaded()"
-            onerror="onFrameError()">
-    </iframe>
+    <!-- ===== TAB 3: EKSPOR ===== -->
+    <div id="tab-ekspor" class="tab-panel">
+      <div class="export-card">
+        <h3>📤 Ekspor Data Koleksi Buku</h3>
+        <p class="sub">Download data dalam format CSV untuk diunggah ke Google Sheet, agar terhubung dengan katalog publik.</p>
+        <div class="export-hint">
+          <strong>Cara menghubungkan ke Google Sheet:</strong><br/>
+          1. Klik tombol <code>Download CSV</code> di bawah<br/>
+          2. Buka <a href="https://sheets.new" target="_blank" rel="noopener">Google Sheets</a> → menu <code>Data</code> → <code>Import data</code><br/>
+          3. Upload file CSV yang sudah di-download<br/>
+          4. Publish sheet → salin URL → update <code>SHEET_CSV_URL</code> di kode ini jika ingin katalog publik sinkron
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-pri" onclick="exportCSV()">⬇️ Download CSV</button>
+          <button class="btn btn-warn" onclick="exportJSON()">📋 Copy JSON</button>
+          <button class="btn btn-danger" onclick="clearAll()">🗑️ Hapus Semua</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TAB 4: HALAMAN EDUKATIF (IFRAME) ===== -->
+    <div id="tab-edukatif" class="tab-panel">
+      <div class="iframe-wrap" id="iframeWrap">
+        <div class="frame-loading" id="frameLoading">
+          <div class="bk-ico">📚</div>
+          <div class="spinner"></div>
+          <p>Memuat halaman edukatif...</p>
+        </div>
+        <div class="blocked-msg" id="blockedMsg">
+          <div class="ic">🔒</div>
+          <h3>Halaman Edukatif Tidak Dapat Ditampilkan</h3>
+          <p>Halaman tidak dapat dimuat dalam bingkai karena kebijakan keamanan browser. Klik tombol di bawah untuk membuka langsung.</p>
+          <a href="https://cos-aigc-default.agnes-ai.com/agent/website-preview/329639033789599744/qiaoran-vs-garlic-turtle-1e387b/index.html?v=3eaa63cfe138"
+             target="_blank" rel="noopener noreferrer" class="btn-open">📖 Buka Halaman Edukatif →</a>
+        </div>
+        <iframe id="libraryFrame"
+                src="about:blank"
+                title="Halaman Edukatif SDN Kibitay"
+                allow="fullscreen"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                loading="lazy"
+                onload="onFrameLoaded()"
+                onerror="onFrameError()"></iframe>
+      </div>
+    </div>
   </main>
 
   <!-- ===== FOOTER ===== -->
@@ -411,70 +620,333 @@
     <p style="margin-top:4px;opacity:0.6;font-size:0.75rem;">NPSN: 20221644 — SD Negeri — Perpustakaan Digital SDN Kibitay</p>
   </footer>
 
+  <!-- ===== TOAST ===== -->
+  <div id="toast"></div>
+
   <script>
-    // Iframe loaded successfully
-    function onFrameLoaded() {
-      const loading = document.getElementById('frame-loading');
-      if (loading) loading.classList.add('hidden');
+    // =====================================================
+    // STORAGE
+    // =====================================================
+    const STORAGE_KEY = 'sdnkibitay_books';
+    const EMBED_URL = 'https://cos-aigc-default.agnes-ai.com/agent/website-preview/329639033789599744/qiaoran-vs-garlic-turtle-1e387b/index.html?v=3eaa63cfe138';
+
+    let editingId = null;
+
+    function loadBooks() {
       try {
-        const iframe = document.getElementById('library-frame');
-        if (iframe && iframe.contentDocument && iframe.contentDocument.body) {
-          // Content accessible — all good
+        const d = localStorage.getItem(STORAGE_KEY);
+        return d ? JSON.parse(d) : [];
+      } catch { return []; }
+    }
+    function saveBooks(books) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(books));
+    }
+
+    // Seed sample data on first visit
+    if (localStorage.getItem(STORAGE_KEY) === null) {
+      saveBooks([
+        { id: Date.now()-3000, judul: 'Matematika Dasar Kelas 1', penulis: 'Kemendikbud', kategori: 'Pelajaran', tahun: '2024', jumlah: 5, kondisi: 'Baik', rak: 'Rak A-1', isbn: '', deskripsi: 'Buku pelajaran matematika kelas 1 SD.', linkCover: '', linkPdf: '', tanggal: new Date().toISOString().split('T')[0], sumber: 'BOSP' },
+        { id: Date.now()-2000, judul: 'Cerita Rakyat Nusantara', penulis: 'Various', kategori: 'Cerita Anak', tahun: '2023', jumlah: 3, kondisi: 'Baik', rak: 'Rak B-2', isbn: '', deskripsi: 'Kumpulan cerita rakyat Indonesia.', linkCover: '', linkPdf: '', tanggal: new Date().toISOString().split('T')[0], sumber: 'Pembelian' },
+        { id: Date.now()-1000, judul: 'Sains Kecil Hebat', penulis: 'Tim Science Kids', kategori: 'Sains', tahun: '2024', jumlah: 2, kondisi: 'Layak', rak: 'Rak C-1', isbn: '', deskripsi: 'Pengenalan sains dasar untuk anak SD.', linkCover: '', linkPdf: '', tanggal: new Date().toISOString().split('T')[0], sumber: 'Donasi' },
+      ]);
+    }
+
+    // =====================================================
+    // TAB SWITCHING
+    // =====================================================
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-nav button').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      document.querySelector(`.tab-nav button[onclick*="switchTab('${tab}')"]`).classList.add('active');
+
+      if (tab === 'koleksi') renderGrid();
+      if (tab === 'edukatif') {
+        const iframe = document.getElementById('libraryFrame');
+        if (iframe && iframe.src === 'about:blank') {
+          iframe.src = EMBED_URL;
         }
-      } catch(e) {
-        setTimeout(function() {
-          showBlockedFallback();
-        }, 3000);
       }
     }
 
-    // Iframe error
+    // =====================================================
+    // FORM SUBMIT
+    // =====================================================
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const books = loadBooks();
+
+      if (editingId) {
+        // UPDATE
+        const idx = books.findIndex(b => b.id === editingId);
+        if (idx > -1) {
+          books[idx] = {
+            ...books[idx],
+            judul: document.getElementById('fJudul').value.trim(),
+            penulis: document.getElementById('fPenulis').value.trim(),
+            kategori: document.getElementById('fKategori').value,
+            tahun: document.getElementById('fTahun').value,
+            jumlah: document.getElementById('fJumlah').value,
+            kondisi: document.getElementById('fKondisi').value,
+            rak: document.getElementById('fRak').value.trim(),
+            isbn: document.getElementById('fISBN').value.trim(),
+            deskripsi: document.getElementById('fDeskripsi').value.trim(),
+            linkCover: document.getElementById('fCover').value.trim(),
+            linkPdf: document.getElementById('fPdf').value.trim(),
+            tanggal: document.getElementById('fTanggal').value,
+            sumber: document.getElementById('fSumber').value,
+          };
+        }
+        saveBooks(books);
+        cancelEdit();
+        showToast('✅ Buku berhasil diupdate!', 'success');
+      } else {
+        // ADD NEW
+        books.push({
+          id: Date.now(),
+          judul: document.getElementById('fJudul').value.trim(),
+          penulis: document.getElementById('fPenulis').value.trim(),
+          kategori: document.getElementById('fKategori').value,
+          tahun: document.getElementById('fTahun').value,
+          jumlah: document.getElementById('fJumlah').value,
+          kondisi: document.getElementById('fKondisi').value,
+          rak: document.getElementById('fRak').value.trim(),
+          isbn: document.getElementById('fISBN').value.trim(),
+          deskripsi: document.getElementById('fDeskripsi').value.trim(),
+          linkCover: document.getElementById('fCover').value.trim(),
+          linkPdf: document.getElementById('fPdf').value.trim(),
+          tanggal: document.getElementById('fTanggal').value || new Date().toISOString().split('T')[0],
+          sumber: document.getElementById('fSumber').value,
+        });
+        saveBooks(books);
+        document.getElementById('bookForm').reset();
+        document.getElementById('fTanggal').value = new Date().toISOString().split('T')[0];
+        showToast('✅ Buku berhasil ditambahkan!', 'success');
+      }
+      updateStats();
+      renderGrid();
+    }
+
+    function resetForm() {
+      document.getElementById('bookForm').reset();
+      document.getElementById('fTanggal').value = new Date().toISOString().split('T')[0];
+      cancelEdit();
+    }
+
+    function cancelEdit() {
+      editingId = null;
+      document.getElementById('cancelEditBtn').style.display = 'none';
+      document.getElementById('submitBtn').textContent = '💾 Simpan Buku';
+      resetForm();
+    }
+
+    function startEdit(id) {
+      const books = loadBooks();
+      const book = books.find(b => b.id === id);
+      if (!book) return;
+      editingId = id;
+      document.getElementById('fJudul').value = book.judul;
+      document.getElementById('fPenulis').value = book.penulis;
+      document.getElementById('fKategori').value = book.kategori;
+      document.getElementById('fTahun').value = book.tahun;
+      document.getElementById('fJumlah').value = book.jumlah;
+      document.getElementById('fKondisi').value = book.kondisi;
+      document.getElementById('fRak').value = book.rak;
+      document.getElementById('fISBN').value = book.isbn;
+      document.getElementById('fDeskripsi').value = book.deskripsi;
+      document.getElementById('fCover').value = book.linkCover;
+      document.getElementById('fPdf').value = book.linkPdf;
+      document.getElementById('fTanggal').value = book.tanggal;
+      document.getElementById('fSumber').value = book.sumber;
+      document.getElementById('cancelEditBtn').style.display = '';
+      document.getElementById('submitBtn').textContent = '💾 Update Buku';
+      switchTab('tambah');
+      showToast('✏️ Edit mode aktif untuk "' + book.judul + '"', 'info');
+    }
+
+    function deleteBook(id) {
+      if (!confirm('Yakin ingin menghapus buku ini dari koleksi?')) return;
+      let books = loadBooks();
+      books = books.filter(b => b.id !== id);
+      saveBooks(books);
+      updateStats();
+      renderGrid();
+      showToast('🗑️ Buku dihapus.', 'error');
+    }
+
+    // =====================================================
+    // RENDER
+    // =====================================================
+    function renderGrid() {
+      const books = loadBooks();
+      const term = document.getElementById('searchBox').value.toLowerCase().trim();
+      const cat = document.getElementById('filterCat').value;
+
+      let filtered = books;
+      if (term) {
+        filtered = filtered.filter(b =>
+          b.judul.toLowerCase().includes(term) ||
+          b.penulis.toLowerCase().includes(term) ||
+          (b.isbn && b.isbn.toLowerCase().includes(term))
+        );
+      }
+      if (cat) filtered = filtered.filter(b => b.kategori === cat);
+
+      // Sort newest first
+      filtered.sort((a, b) => b.id - a.id);
+
+      const grid = document.getElementById('bookGrid');
+      const empty = document.getElementById('emptyState');
+      const countEl = document.getElementById('countText');
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        empty.style.display = 'block';
+        countEl.textContent = books.length === 0 ? 'Koleksi masih kosong' : 'Tidak ada hasil';
+        return;
+      }
+      empty.style.display = 'none';
+      countEl.textContent = `Menampilkan ${filtered.length} dari ${books.length} koleksi buku`;
+
+      const catEmoji = {
+        'Pelajaran': '📘', 'Cerita Anak': '📖', 'Sains': '🔬',
+        'Bahasa': '🗣️', 'Seni': '🎨', 'Agama': '🕌',
+        'Komik': '💬', 'Puzzle & Teka-teki': '🧩', 'Umum': '📚'
+      };
+
+      grid.innerHTML = filtered.map(b => {
+        const coverHtml = b.linkCover
+          ? `<img src="${esc(b.linkCover)}" alt="${esc(b.judul)}" loading="lazy" onerror="this.outerHTML='<div class=\\'ph\\'>📚</div>'"/>`
+          : '<div class="ph">📚</div>';
+        const hasPdf = b.linkPdf && b.linkPdf.length > 0;
+        return `
+          <div class="book-card">
+            <div class="book-cover">${coverHtml}</div>
+            <div class="book-info">
+              <span class="bk-cat">${catEmoji[b.kategori] || '📚'} ${esc(b.kategori)}</span>
+              <h3>${esc(b.judul)}</h3>
+              <p class="auth">${esc(b.penulis)} • ${esc(b.tahun || '-')}</p>
+              <p class="meta">
+                ${esc(b.rak || '-')} • ${esc(b.sumber || '-')}
+                ${b.kondisi && b.kondisi !== 'Baik' ? ' • ' + esc(b.kondisi) : ''}
+              </p>
+              <div class="bk-actions">
+                <a class="bk-btn pdf ${hasPdf ? '' : 'disabled'}" href="${hasPdf ? esc(b.linkPdf) : '#'}"
+                   target="_blank" rel="noopener noreferrer">📄 Baca PDF</a>
+                <button class="bk-btn del" onclick="startEdit(${b.id})">✏️</button>
+                <button class="bk-btn del" onclick="deleteBook(${b.id})">🗑️</button>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function updateStats() {
+      const books = loadBooks();
+      document.getElementById('sTotal').textContent = books.length;
+      const now = new Date();
+      document.getElementById('sBulan').textContent = books.filter(b => {
+        if (!b.tanggal) return false;
+        const d = new Date(b.tanggal);
+        return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+      }).length;
+      const cats = new Set(books.map(b => b.kategori).filter(Boolean));
+      document.getElementById('sKategori').textContent = cats.size;
+      document.getElementById('sPdf').textContent = books.filter(b => b.linkPdf).length;
+    }
+
+    // =====================================================
+    // EXPORT
+    // =====================================================
+    function exportCSV() {
+      const books = loadBooks();
+      if (books.length === 0) { showToast('Tidak ada data untuk diekspor.', 'error'); return; }
+      const headers = ['Judul','Penulis','Kategori','Tahun','Deskripsi','LinkCover','LinkPDF','Jumlah','Kondisi','Rak','ISBN','Tanggal','Sumber'];
+      const rows = books.map(b => [b.judul,b.penulis,b.kategori,b.tahun,b.deskripsi,b.linkCover,b.linkPdf,b.jumlah,b.kondisi,b.rak,b.isbn,b.tanggal,b.sumber]);
+      const csv = [headers, ...rows].map(r => r.map(c => `"${String(c ?? '').replace(/"/g,'""')}"`).join(',')).join('\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'katalog-buku-sdnkibitay.csv';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('✅ CSV berhasil di-download!', 'success');
+    }
+
+    function exportJSON() {
+      const books = loadBooks();
+      const json = JSON.stringify(books, null, 2);
+      navigator.clipboard.writeText(json)
+        .then(() => showToast('✅ JSON disalin ke clipboard!', 'success'))
+        .catch(() => prompt('Copy JSON berikut:', json));
+    }
+
+    function clearAll() {
+      if (!confirm('PERINGATAN: Semua data koleksi buku akan dihapus permanen. Lanjutkan?')) return;
+      localStorage.removeItem(STORAGE_KEY);
+      updateStats();
+      renderGrid();
+      showToast('🗑️ Semua data telah dihapus.', 'error');
+    }
+
+    // =====================================================
+    // IFRAME MANAGEMENT
+    // =====================================================
+    function onFrameLoaded() {
+      document.getElementById('frameLoading').classList.add('hidden');
+      // Detect cross-origin block (can't access contentDocument)
+      setTimeout(() => {
+        try {
+          const f = document.getElementById('libraryFrame');
+          if (f && f.contentDocument && f.contentDocument.body) {
+            // Same origin — good
+          }
+        } catch(e) {
+          // Cross-origin — the fallback already shows; we don't hide iframe
+        }
+      }, 3000);
+    }
+
     function onFrameError() {
-      showBlockedFallback();
+      showBlockFallback();
     }
 
-    // Show blocked fallback message
-    function showBlockedFallback() {
-      const loading = document.getElementById('frame-loading');
-      if (loading) loading.classList.add('hidden');
-      const blocked = document.getElementById('blocked-message');
-      if (blocked) blocked.classList.add('visible');
-      const iframe = document.getElementById('library-frame');
-      if (iframe) iframe.style.display = 'none';
+    function showBlockFallback() {
+      document.getElementById('frameLoading').classList.add('hidden');
+      document.getElementById('blockedMsg').classList.add('visible');
+      document.getElementById('libraryFrame').style.display = 'none';
     }
 
-    // Scroll inside iframe (for nav buttons — works only if same-origin)
-    function scrollIframe(section) {
-      const iframe = document.getElementById('library-frame');
-      if (!iframe) return;
-      try {
-        const doc = iframe.contentDocument || iframe.contentWindow.document;
-        const el = doc.getElementById(section);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      } catch(e) {
-        const baseUrl = 'https://cos-aigc-default.agnes-ai.com/agent/website-preview/329639033789599744/qiaoran-vs-garlic-turtle-1e387b/index.html?v=3eaa63cfe138';
-        window.open(baseUrl + '#' + section, '_blank');
-      }
-    }
-
-    // Timeout fallback — if iframe doesn't load in 8s
-    setTimeout(function() {
-      const loading = document.getElementById('frame-loading');
-      if (loading && !loading.classList.contains('hidden')) {
-        showBlockedFallback();
+    // Timeout: if iframe still loading after 8s, show fallback
+    setTimeout(() => {
+      const f = document.getElementById('libraryFrame');
+      const load = document.getElementById('frameLoading');
+      if (f && f.src === 'about:blank') return; // not triggered yet
+      if (load && !load.classList.contains('hidden')) {
+        showBlockFallback();
       }
     }, 8000);
 
-    // Handle browser back button
-    window.addEventListener('pageshow', function(e) {
-      const loading = document.getElementById('frame-loading');
-      if (loading && e.persisted) {
-        const iframe = document.getElementById('library-frame');
-        if (iframe && iframe.contentWindow) {
-          loading.classList.add('hidden');
-        }
-      }
-    });
+    // =====================================================
+    // UTILITIES
+    // =====================================================
+    function esc(text) {
+      const d = document.createElement('div');
+      d.textContent = text;
+      return d.innerHTML;
+    }
+
+    function showToast(msg, type = 'info') {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'show ' + type;
+      setTimeout(() => t.classList.remove('show'), 3500);
+    }
+
+    // Initialize
+    document.getElementById('fTanggal').value = new Date().toISOString().split('T')[0];
+    updateStats();
+    renderGrid();
   </script>
 </body>
 </html>
